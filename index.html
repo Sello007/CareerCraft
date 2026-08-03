@@ -1,558 +1,104 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareerCraft - Empowering SA Graduates</title>
+    <title>CareerCraft - Premium Career Solutions</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
+<body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
 
-    <!-- Navigation Bar -->
-    <nav class="bg-slate-900 text-white sticky top-0 z-40 border-b border-slate-800 shadow-md">
+    <!-- Premium Corporate Header -->
+    <header class="bg-blue-950 sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <a href="#" class="flex items-center space-x-2">
-                    <span class="text-2xl font-black tracking-wider text-emerald-400">CareerCraft</span>
+            <div class="flex justify-between h-20 items-center">
+                <!-- Brand Logo -->
+                <a href="index.html" class="flex items-center space-x-3 transition hover:opacity-80">
+                    <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center text-blue-950 font-black text-2xl">C</div>
+                    <span class="text-2xl font-black tracking-wide text-white">Career<span class="text-amber-500">Craft</span></span>
                 </a>
-                
-                <!-- Desktop Nav Links -->
-                <div class="hidden md:flex space-x-6 text-xs font-semibold uppercase tracking-wider">
-                    <a href="#mission-vision" class="hover:text-emerald-400 transition">Mission & Vision</a>
-                    <a href="#about" class="hover:text-emerald-400 transition">Why It Matters</a>
-                    <a href="#features" class="hover:text-emerald-400 transition">Features</a>
-                    <a href="#how-it-works" class="hover:text-emerald-400 transition">How It Works</a>
-                    <a href="#market" class="hover:text-emerald-400 transition">Market</a>
-                    <a href="#pricing" class="hover:text-emerald-400 transition">Pricing</a>
-                    <a href="#brand-guidelines" class="hover:text-emerald-400 transition">Design System</a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-amber-500 font-bold text-sm">Home</a>
+                    <a href="resumes.html" class="text-gray-300 hover:text-white font-medium text-sm transition">Resume Templates</a>
+                    <a href="prompts.html" class="text-gray-300 hover:text-white font-medium text-sm transition">AI Prompts</a>
+                    <a href="linkedin.html" class="text-gray-300 hover:text-white font-medium text-sm transition">LinkedIn Profiles</a>
+                </nav>
+
+                <!-- Call to Action -->
+                <div class="flex items-center space-x-4">
+                    <a href="login.html" class="text-gray-300 hover:text-white font-medium text-sm transition">Log In</a>
+                    <a href="signup.html" class="bg-amber-500 hover:bg-amber-400 text-blue-950 font-bold text-sm px-6 py-2.5 rounded-lg transition shadow-lg transform hover:-translate-y-0.5">Get Started</a>
                 </div>
-
-                <!-- Auth Buttons / User Profile State -->
-                <div id="auth-nav-container" class="flex items-center space-x-3">
-                    <!-- Guest View Buttons -->
-                    <div id="guest-buttons" class="flex items-center space-x-2">
-                        <button onclick="openModal('login-modal')" class="text-slate-300 hover:text-white font-medium text-xs px-3 py-2 rounded-lg transition">Log In</button>
-                        <button onclick="openModal('signup-modal')" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs px-4 py-2 rounded-lg transition">Sign Up</button>
-                    </div>
-
-                    <!-- Logged-in View -->
-                    <div id="user-buttons" class="hidden flex items-center space-x-3">
-                        <a href="#dashboard" class="flex items-center space-x-2 bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg border border-slate-700 transition">
-                            <i class="fa-solid fa-user-circle text-emerald-400 text-base"></i>
-                            <span id="nav-user-name" class="text-xs font-semibold text-slate-200">User Profile</span>
-                        </a>
-                        <button onclick="handleLogout()" class="text-xs text-rose-400 hover:text-rose-300 font-semibold px-2 py-1 transition">Log Out</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="bg-gradient-to-br from-emerald-950 via-slate-900 to-slate-950 text-white py-20 px-4 text-center relative overflow-hidden">
-        <div class="max-w-4xl mx-auto relative z-10">
-            <span class="uppercase tracking-widest text-emerald-400 font-bold text-xs bg-emerald-950/80 border border-emerald-500/30 px-3 py-1 rounded-full">
-                Empowering South African Graduates To Land Their Dream Jobs
-            </span>
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-black mt-6 leading-tight tracking-tight">
-                Stop Being Invisible to Employers
-            </h1>
-            <p class="text-slate-300 text-base sm:text-lg md:text-xl mt-4 max-w-2xl mx-auto font-normal">
-                AI-powered CV optimisation, ATS-beating formats, and LinkedIn enhancements built specifically for the South African job market[cite: 1].
-            </p>
-            <div class="mt-8 flex flex-wrap justify-center gap-4">
-                <button onclick="openModal('signup-modal')" class="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold px-6 py-3 rounded-xl shadow-lg transition">Get Started Free</button>
-                <a href="#mission-vision" class="border border-slate-700 text-slate-200 hover:bg-slate-800 font-semibold px-6 py-3 rounded-xl transition">Explore Platform</a>
             </div>
         </div>
     </header>
 
-    <!-- Mission & Vision Section -->
-    <section id="mission-vision" class="py-16 bg-white border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="text-emerald-600 font-extrabold uppercase text-xs tracking-wider">Our Core Foundation</span>
-                <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Mission & Vision</h2>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Mission -->
-                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:border-emerald-500/50 transition">
-                    <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
-                        <i class="fa-solid fa-bullseye"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Our Mission</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm md:text-base">
-                        To empower every South African graduate with cutting-edge AI career tools, eliminating algorithmic recruitment barriers and connecting qualified talent with meaningful career opportunities across local and global industries[cite: 1].
-                    </p>
-                </div>
-
-                <!-- Vision -->
-                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:border-emerald-500/50 transition">
-                    <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
-                        <i class="fa-solid fa-eye"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Our Vision</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm md:text-base">
-                        To directly facilitate the successful employment of 100,000 South African graduates by 2030[cite: 1], serving as the premier national career ecosystem that bridges the gap between tertiary education and youth employment[cite: 1].
-                    </p>
+    <!-- Hero Section -->
+    <main class="flex-grow">
+        <section class="bg-white border-b border-gray-200 py-20 lg:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-blue-950 leading-tight mb-6">
+                    Elevate Your Career with <br class="hidden sm:block" /> <span class="text-blue-700">Premium AI Precision</span>
+                </h1>
+                <p class="text-gray-600 text-lg sm:text-xl max-w-2xl mx-auto mb-10">
+                    We equip South African professionals and graduates with ATS-optimised resumes, elite LinkedIn profiles, and strategic AI prompts to dominate the job market.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="resumes.html" class="bg-blue-900 hover:bg-blue-800 text-white font-bold px-8 py-4 rounded-xl transition shadow-xl transform hover:-translate-y-1 text-lg flex items-center justify-center">
+                        <i class="fa-solid fa-file-lines mr-3"></i> View Resume Templates
+                    </a>
+                    <a href="signup.html" class="bg-white hover:bg-gray-50 text-blue-900 font-bold px-8 py-4 rounded-xl transition shadow-md border border-gray-200 text-lg flex items-center justify-center">
+                        Create Your Account
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Interactive User Personalization Dashboard Section (Visible/Editable when Logged In) -->
-    <section id="dashboard" class="py-16 bg-emerald-900 text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-slate-900 border border-emerald-500/30 rounded-2xl p-6 md:p-8 shadow-2xl">
-                <div class="flex justify-between items-center border-b border-slate-800 pb-4 mb-6">
-                    <div>
-                        <span class="text-emerald-400 font-bold text-xs uppercase tracking-widest">Personal Dashboard</span>
-                        <h2 class="text-2xl font-extrabold text-white">Your Personalization Settings</h2>
-                    </div>
-                    <span id="dashboard-status-badge" class="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs px-3 py-1 rounded-full font-medium">Guest Mode</span>
-                </div>
-
-                <form id="profile-form" onsubmit="savePersonalization(event)" class="space-y-4">
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Full Name</label>
-                            <input type="text" id="user-fullname" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-400" placeholder="e.g. Makuks Mahlangu" required>
+        <!-- Feature Highlights -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                        <div class="w-14 h-14 bg-blue-50 text-blue-700 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-shield-halved"></i>
                         </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Email Address</label>
-                            <input type="email" id="user-email" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-400" placeholder="e.g. makuks@example.com" required>
+                        <h3 class="font-bold text-blue-950 text-xl mb-3">Formidable Formatting</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Clean, corporate designs guaranteed to pass seamlessly through strict South African Applicant Tracking Systems.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                        <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-robot"></i>
                         </div>
+                        <h3 class="font-bold text-blue-950 text-xl mb-3">AI Prompts Library</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Exclusive access to tested prompts that rewrite your experience into high-impact, recruiter-friendly achievements.</p>
                     </div>
-
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Target Job Role</label>
-                            <input type="text" id="user-role" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-400" placeholder="e.g. Network Engineer / Business Analyst">
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                        <div class="w-14 h-14 bg-blue-50 text-blue-700 rounded-xl flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-brands fa-linkedin-in"></i>
                         </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Current ATS Optimization Score</label>
-                            <div class="flex items-center space-x-3 bg-slate-800 border border-slate-700 rounded-lg px-4 py-2">
-                                <i class="fa-solid fa-chart-line text-emerald-400"></i>
-                                <span id="user-ats-score" class="text-sm font-bold text-emerald-400">82% (Optimised)</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pt-4 flex justify-end space-x-3">
-                        <button type="submit" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs px-6 py-2.5 rounded-lg transition">
-                            Save Personalization
-                        </button>
-                    </div>
-                </form>
-                <div id="save-alert" class="hidden mt-4 p-3 bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 text-xs rounded-lg text-center font-medium">
-                    Profile preferences saved successfully!
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why It Matters Section -->
-    <section id="about" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12 mb-12">
-            <h2 class="text-xs uppercase font-extrabold tracking-wider text-emerald-600 mb-2">The Reality</h2>
-            <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">Meet Emiey & Lerato[cite: 1]</h3>
-            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                Qualified. Motivated. Invisible to Employers[cite: 1]. Lerato holds a BCom degree and has sent over 100 job applications[cite: 1]. She has received zero responses[cite: 1]. Her CV never makes it past the ATS filter[cite: 1]. Her story is not unique—it is the reality for thousands of South African graduates[cite: 1].
-            </p>
-        </div>
-
-        <h3 class="text-2xl font-extrabold text-slate-900 text-center mb-8">Why It Matters[cite: 1]</h3>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-6">
-                <div class="text-3xl font-black text-emerald-700 mb-2">45%</div>
-                <h4 class="font-bold text-slate-900 text-base mb-2">Youth Unemployment Crisis[cite: 1]</h4>
-                <p class="text-slate-600 text-xs leading-relaxed">South Africa has one of the highest youth unemployment rates in the world[cite: 1]. Nearly half of young South Africans are unable to find work[cite: 1].</p>
-            </div>
-            <div class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-6">
-                <div class="text-3xl font-black text-emerald-700 mb-2">60%</div>
-                <h4 class="font-bold text-slate-900 text-base mb-2">CVs Never Seen by Humans[cite: 1]</h4>
-                <p class="text-slate-600 text-xs leading-relaxed">The majority of job applications are filtered out by Applicant Tracking Systems before a recruiter ever reads them[cite: 1].</p>
-            </div>
-            <div class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-6">
-                <div class="text-3xl font-black text-emerald-700 mb-2">Fierce</div>
-                <h4 class="font-bold text-slate-900 text-base mb-2">Role Competition[cite: 1]</h4>
-                <p class="text-slate-600 text-xs leading-relaxed">Thousands of graduates compete for a shrinking pool of entry-level positions without the right optimization tools[cite: 1].</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Platform Features -->
-    <section id="features" class="bg-slate-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-emerald-400 font-extrabold uppercase tracking-wider text-xs">AI Ecosystem[cite: 1]</h2>
-                <h3 class="text-3xl font-extrabold mt-1">Engineered To Beat The ATS[cite: 1]</h3>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 hover:border-emerald-500/50 transition">
-                    <i class="fa-solid fa-robot text-emerald-400 text-2xl mb-4"></i>
-                    <h4 class="text-lg font-bold mb-2">AI CV Optimisation[cite: 1]</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">Analyses your CV against job descriptions, scoring and rewriting content to maximize recruiter impact[cite: 1].</p>
-                </div>
-                <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 hover:border-emerald-500/50 transition">
-                    <i class="fa-solid fa-file-contract text-emerald-400 text-2xl mb-4"></i>
-                    <h4 class="text-lg font-bold mb-2">ATS-Beating Format[cite: 1]</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">Intelligent formatting ensures your CV passes Applicant Tracking Systems with high visibility[cite: 1].</p>
-                </div>
-                <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 hover:border-emerald-500/50 transition">
-                    <i class="fa-brands fa-linkedin text-emerald-400 text-2xl mb-4"></i>
-                    <h4 class="text-lg font-bold mb-2">LinkedIn Enhancement[cite: 1]</h4>
-                    <p class="text-slate-400 text-xs leading-relaxed">Keyword optimisation and headline suggestions that amplify your personal professional brand online[cite: 1].</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-extrabold text-center text-slate-900 mb-12">Experience CareerCraft in Action[cite: 1]</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                <span class="w-8 h-8 bg-emerald-100 text-emerald-800 font-bold rounded-full flex items-center justify-center mb-4 text-xs">01</span>
-                <h3 class="font-bold text-slate-900 text-base mb-2">Upload & AI Analysis[cite: 1]</h3>
-                <p class="text-slate-600 text-xs leading-relaxed">Upload your CV in seconds[cite: 1]. Our engine scans your document and benchmarks your profile against top SA employer requirements[cite: 1].</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                <span class="w-8 h-8 bg-emerald-100 text-emerald-800 font-bold rounded-full flex items-center justify-center mb-4 text-xs">02</span>
-                <h3 class="font-bold text-slate-900 text-base mb-2">ATS Optimisation[cite: 1]</h3>
-                <p class="text-slate-600 text-xs leading-relaxed">Receive a real-time ATS score with keyword suggestions, formatting fixes, and role-specific rewrites[cite: 1].</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                <span class="w-8 h-8 bg-emerald-100 text-emerald-800 font-bold rounded-full flex items-center justify-center mb-4 text-xs">03</span>
-                <h3 class="font-bold text-slate-900 text-base mb-2">Track & Apply[cite: 1]</h3>
-                <p class="text-slate-600 text-xs leading-relaxed">Monitor every application from a single dashboard[cite: 1]. Track status, set reminders, and analyze application performance[cite: 1].</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Market & Competitive Edge -->
-    <section id="market" class="bg-slate-100 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-extrabold text-center text-slate-900 mb-12">Market Opportunity: SA Career Tech Landscape[cite: 1]</h2>
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center border border-slate-200">
-                    <div class="text-emerald-600 font-extrabold text-xs uppercase tracking-wide">TAM[cite: 1]</div>
-                    <div class="text-3xl font-extrabold text-slate-900 my-2">R2.5 Billion[cite: 1]</div>
-                    <p class="text-slate-600 text-xs">All active SA job seekers, career platforms, recruitment tools, and development services[cite: 1].</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center border border-slate-200">
-                    <div class="text-emerald-600 font-extrabold text-xs uppercase tracking-wide">SAM[cite: 1]</div>
-                    <div class="text-3xl font-extrabold text-slate-900 my-2">R800 Million[cite: 1]</div>
-                    <p class="text-slate-600 text-xs">University graduates, TVET students, and early-career professionals seeking guidance[cite: 1].</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center border border-slate-200">
-                    <div class="text-emerald-600 font-extrabold text-xs uppercase tracking-wide">SOM[cite: 1]</div>
-                    <div class="text-3xl font-extrabold text-slate-900 my-2">R120 Million[cite: 1]</div>
-                    <p class="text-slate-600 text-xs">Digitally active urban graduates ready to pay for AI CV & ATS matching tools[cite: 1].</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing / Business Model -->
-    <section id="pricing" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-extrabold text-center text-slate-900 mb-12">Business Model: Freemium Monetisation[cite: 1]</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm flex flex-col justify-between">
-                <div>
-                    <h3 class="font-bold text-xl text-slate-900 mb-2">Free Tier[cite: 1]</h3>
-                    <div class="text-3xl font-extrabold text-slate-900 mb-4">R0 <span class="text-xs font-normal text-slate-500">/ month</span>[cite: 1]</div>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-6">Basic CV review, ATS score check, and 1 optimisation per month[cite: 1].</p>
-                </div>
-                <button onclick="openModal('signup-modal')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-2.5 rounded-lg text-xs transition">Get Started</button>
-            </div>
-            <div class="bg-white border-2 border-emerald-500 rounded-2xl p-8 shadow-md relative flex flex-col justify-between">
-                <span class="bg-emerald-500 text-slate-950 font-extrabold text-xs uppercase px-3 py-1 rounded-full absolute -top-3 right-6">Popular</span>
-                <div>
-                    <h3 class="font-bold text-xl text-slate-900 mb-2">Premium Tier[cite: 1]</h3>
-                    <div class="text-3xl font-extrabold text-slate-900 mb-4">R49 <span class="text-xs font-normal text-slate-500">/ month</span>[cite: 1]</div>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-6">Unlimited CV optimisations, LinkedIn rewrites, cover letter generation, and priority ATS matching[cite: 1].</p>
-                </div>
-                <button onclick="openModal('signup-modal')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold py-2.5 rounded-lg text-xs transition">Upgrade Now</button>
-            </div>
-            <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm flex flex-col justify-between">
-                <div>
-                    <h3 class="font-bold text-xl text-slate-900 mb-2">Enterprise Partnerships[cite: 1]</h3>
-                    <div class="text-3xl font-extrabold text-slate-900 mb-4">B2B[cite: 1]</div>
-                    <p class="text-slate-600 text-xs leading-relaxed mb-6">University career centres, graduate recruiters, and corporate talent pipelines[cite: 1].</p>
-                </div>
-                <button onclick="alert('Enterprise inquiry form submitted!')" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-lg text-xs transition">Contact Sales</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- BRAND GUIDELINES & DESIGN SYSTEM PAGE SECTION (AT THE END) -->
-    <section id="brand-guidelines" class="bg-slate-950 text-slate-100 py-16 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="border-b border-slate-800 pb-6 mb-12">
-                <span class="text-emerald-400 font-extrabold text-xs uppercase tracking-widest">Brand Guidelines & Visual Identity</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Design System & Explanation</h2>
-                <p class="text-slate-400 text-xs sm:text-sm mt-2 max-w-3xl">Comprehensive UI/UX architectural specs, visual language rationale, color palette definitions, and typography scales powering CareerCraft.</p>
-            </div>
-
-            <!-- Explanation of Visuals -->
-            <div class="mb-12">
-                <h3 class="text-xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-palette"></i> Explanation of Visuals
-                </h3>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-slate-900 p-5 rounded-xl border border-slate-800">
-                        <h4 class="font-bold text-white text-sm mb-2">Modern Tech Trust</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed">Deep slate darks combined with energetic emerald green reflect precision, security, and career progression without feeling overly corporate.</p>
-                    </div>
-                    <div class="bg-slate-900 p-5 rounded-xl border border-slate-800">
-                        <h4 class="font-bold text-white text-sm mb-2">Scannable Cards & Micro-Interactions</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed">Modular card layouts with subtle border highlights guide user attention quickly across complex data points like ATS metrics and pricing tiers.</p>
-                    </div>
-                    <div class="bg-slate-900 p-5 rounded-xl border border-slate-800">
-                        <h4 class="font-bold text-white text-sm mb-2">Accessibility & Contrast</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed">High-contrast text hierarchy ensures maximum legibility on both desktop and mobile devices for all South African job seekers.</p>
+                        <h3 class="font-bold text-blue-950 text-xl mb-3">LinkedIn Optimization</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Transform your digital footprint. We help you write headlines and summaries that attract hiring managers directly.</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Color Palette -->
-            <div class="mb-12">
-                <h3 class="text-xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-droplet"></i> Color Palette
-                </h3>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-                        <div class="h-16 bg-emerald-500 rounded-lg mb-3"></div>
-                        <span class="block font-bold text-white text-xs">Primary Emerald</span>
-                        <span class="block text-slate-400 text-[10px] font-mono">#10B981 (Tailwind emerald-500)</span>
-                    </div>
-                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-                        <div class="h-16 bg-slate-900 border border-slate-700 rounded-lg mb-3"></div>
-                        <span class="block font-bold text-white text-xs">Dark Slate (Background)</span>
-                        <span class="block text-slate-400 text-[10px] font-mono">#0F172A (Tailwind slate-900)</span>
-                    </div>
-                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-                        <div class="h-16 bg-slate-50 rounded-lg mb-3"></div>
-                        <span class="block font-bold text-white text-xs">Light Background</span>
-                        <span class="block text-slate-400 text-[10px] font-mono">#F8FAFC (Tailwind slate-50)</span>
-                    </div>
-                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-                        <div class="h-16 bg-amber-500 rounded-lg mb-3"></div>
-                        <span class="block font-bold text-white text-xs">Accent Gold</span>
-                        <span class="block text-slate-400 text-[10px] font-mono">#F59E0B (Tailwind amber-500)</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Fonts and Sizes Table -->
-            <div>
-                <h3 class="text-xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-font"></i> Typography Scale & Font Sizes
-                </h3>
-                <div class="overflow-x-auto bg-slate-900 border border-slate-800 rounded-xl">
-                    <table class="w-full text-left text-xs text-slate-300">
-                        <thead class="bg-slate-800 text-slate-200 uppercase font-bold text-[11px]">
-                            <tr>
-                                <th class="p-3">Element / Hierarchy</th>
-                                <th class="p-3">Font Family</th>
-                                <th class="p-3">Tailwind Class</th>
-                                <th class="p-3">Pixel Size</th>
-                                <th class="p-3">Weight</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-800">
-                            <tr>
-                                <td class="p-3 font-semibold text-white">Hero Title (H1)</td>
-                                <td class="p-3">Inter</td>
-                                <td class="p-3 font-mono text-emerald-400">text-4xl to text-6xl</td>
-                                <td class="p-3">36px - 60px</td>
-                                <td class="p-3">Black (900)</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-semibold text-white">Section Headings (H2)</td>
-                                <td class="p-3">Inter</td>
-                                <td class="p-3 font-mono text-emerald-400">text-3xl</td>
-                                <td class="p-3">30px</td>
-                                <td class="p-3">Extrabold (800)</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-semibold text-white">Card Headings (H3/H4)</td>
-                                <td class="p-3">Inter</td>
-                                <td class="p-3 font-mono text-emerald-400">text-lg to text-xl</td>
-                                <td class="p-3">18px - 20px</td>
-                                <td class="p-3">Bold (700)</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-semibold text-white">Body Text</td>
-                                <td class="p-3">Inter</td>
-                                <td class="p-3 font-mono text-emerald-400">text-sm to text-base</td>
-                                <td class="p-3">14px - 16px</td>
-                                <td class="p-3">Normal (400) / Medium (500)</td>
-                            </tr>
-                            <tr>
-                                <td class="p-3 font-semibold text-white">Captions & Badges</td>
-                                <td class="p-3">Inter</td>
-                                <td class="p-3 font-mono text-emerald-400">text-xs</td>
-                                <td class="p-3">12px</td>
-                                <td class="p-3">Semibold (600) / Bold (700)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs border-t border-slate-800 mt-auto">
-        <p>&copy; 2026 CareerCraft South Africa. All rights reserved[cite: 1].</p>
+    <footer class="bg-blue-950 text-gray-400 py-8 text-center">
+        <p class="text-sm">&copy; 2026 CareerCraft South Africa. Professional Career Excellence.</p>
     </footer>
 
-    <!-- MODAL: LOGIN -->
-    <div id="login-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 text-white rounded-2xl w-full max-w-md p-6 relative shadow-2xl">
-            <button onclick="closeModal('login-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <h3 class="text-xl font-bold mb-1 text-white">Log In to CareerCraft</h3>
-            <p class="text-slate-400 text-xs mb-6">Access your AI CV optimization engine.</p>
-            
-            <form onsubmit="handleLogin(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs uppercase font-semibold text-slate-300 mb-1">Email</label>
-                    <input type="email" id="login-email" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-400" placeholder="makuks@example.com" required>
-                </div>
-                <div>
-                    <label class="block text-xs uppercase font-semibold text-slate-300 mb-1">Password</label>
-                    <input type="password" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-400" value="password123" required>
-                </div>
-                <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-2.5 rounded-lg text-xs transition">Log In</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- MODAL: SIGN UP -->
-    <div id="signup-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 text-white rounded-2xl w-full max-w-md p-6 relative shadow-2xl">
-            <button onclick="closeModal('signup-modal')" class="absolute top-4 right-4 text-slate-400 hover:text-white">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <h3 class="text-xl font-bold mb-1 text-white">Create Account</h3>
-            <p class="text-slate-400 text-xs mb-6">Join thousands of SA graduates unlocking jobs[cite: 1].</p>
-            
-            <form onsubmit="handleSignup(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs uppercase font-semibold text-slate-300 mb-1">Full Name</label>
-                    <input type="text" id="signup-name" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-400" placeholder="Makuks Mahlangu" required>
-                </div>
-                <div>
-                    <label class="block text-xs uppercase font-semibold text-slate-300 mb-1">Email</label>
-                    <input type="email" id="signup-email" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-400" placeholder="makuks@example.com" required>
-                </div>
-                <div>
-                    <label class="block text-xs uppercase font-semibold text-slate-300 mb-1">Target Role</label>
-                    <input type="text" id="signup-role" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-400" placeholder="Software / Network Graduate" required>
-                </div>
-                <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-2.5 rounded-lg text-xs transition">Sign Up Free</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Interactive JavaScript -->
-    <script>
-        // Modal toggles
-        function openModal(id) {
-            document.getElementById(id).classList.remove('hidden');
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
-        }
-
-        // Auth state logic
-        function checkAuth() {
-            const user = JSON.parse(localStorage.getItem('careercraft_user'));
-            const guestButtons = document.getElementById('guest-buttons');
-            const userButtons = document.getElementById('user-buttons');
-            const navUserName = document.getElementById('nav-user-name');
-            const badge = document.getElementById('dashboard-status-badge');
-
-            if (user) {
-                guestButtons.classList.add('hidden');
-                userButtons.classList.remove('hidden');
-                navUserName.innerText = user.name;
-                
-                document.getElementById('user-fullname').value = user.name || '';
-                document.getElementById('user-email').value = user.email || '';
-                document.getElementById('user-role').value = user.role || '';
-                
-                badge.innerText = 'Authenticated User';
-                badge.className = 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs px-3 py-1 rounded-full font-medium';
-            } else {
-                guestButtons.classList.remove('hidden');
-                userButtons.classList.add('hidden');
-                
-                document.getElementById('user-fullname').value = '';
-                document.getElementById('user-email').value = '';
-                document.getElementById('user-role').value = '';
-                
-                badge.innerText = 'Guest Mode';
-                badge.className = 'bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs px-3 py-1 rounded-full font-medium';
-            }
-        }
-
-        function handleLogin(e) {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const name = email.split('@')[0];
-            const user = { name: name.charAt(0).toUpperCase() + name.slice(1), email: email, role: 'Graduate Professional' };
-            localStorage.setItem('careercraft_user', JSON.stringify(user));
-            closeModal('login-modal');
-            checkAuth();
-        }
-
-        function handleSignup(e) {
-            e.preventDefault();
-            const name = document.getElementById('signup-name').value;
-            const email = document.getElementById('signup-email').value;
-            const role = document.getElementById('signup-role').value;
-            const user = { name, email, role };
-            localStorage.setItem('careercraft_user', JSON.stringify(user));
-            closeModal('signup-modal');
-            checkAuth();
-        }
-
-        function handleLogout() {
-            localStorage.removeItem('careercraft_user');
-            checkAuth();
-        }
-
-        function savePersonalization(e) {
-            e.preventDefault();
-            const name = document.getElementById('user-fullname').value;
-            const email = document.getElementById('user-email').value;
-            const role = document.getElementById('user-role').value;
-            
-            const user = { name, email, role };
-            localStorage.setItem('careercraft_user', JSON.stringify(user));
-            checkAuth();
-
-            const alert = document.getElementById('save-alert');
-            alert.classList.remove('hidden');
-            setTimeout(() => alert.classList.add('hidden'), 3000);
-        }
-
-        // Initialize state on page load
-        document.addEventListener('DOMContentLoaded', checkAuth);
-    </script>
 </body>
 </html>
